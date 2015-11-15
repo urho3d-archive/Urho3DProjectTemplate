@@ -17,8 +17,8 @@ class EmptyProject
 		
 		regex = new Regex(@"<AdditionalIncludeDirectories>(.+?)\\include");
 		Match match = regex.Match(text);
-		string путь = match.Result("$1");
-		text = text.Replace(@"..\..\..", путь);
+		string path = match.Result("$1");
+		text = text.Replace(@"..\..\..", path);
 		
 		regex = new Regex(@"<ImportLibrary>.+?/Samples/01_HelloWorld/(.+?)/.+?lib</ImportLibrary>");
 		text = regex.Replace(text, "<ImportLibrary>$1/" + projectName + ".lib</ImportLibrary>");
