@@ -24,10 +24,10 @@ class EmptyProject
 		text = regex.Replace(text, "<ImportLibrary>$1/" + projectName + ".lib</ImportLibrary>");
 		
 		regex = new Regex(@"<ProgramDataBaseFile>.+?</ProgramDataBaseFile>");
-		text = regex.Replace(text, "<ProgramDataBaseFile>Result/" + projectName + ".pdb</ProgramDataBaseFile>");
+		text = regex.Replace(text, "<ProgramDataBaseFile>../Result/" + projectName + ".pdb</ProgramDataBaseFile>");
 		
 		regex = new Regex(@"(<OutDir.+?>).+?</OutDir>");
-		text = regex.Replace(text, "$1Result/</OutDir>");
+		text = regex.Replace(text, "$1../Result/</OutDir>");
 	
 		regex = new Regex(@"(<TargetName.+?>).+?</TargetName>");
 		text = regex.Replace(text, "$1" + projectName + "</TargetName>");
